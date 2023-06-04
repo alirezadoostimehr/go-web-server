@@ -9,4 +9,4 @@ I want this server to respond only to 4 subdomains
 
 3. "/name1" which gets name as url variable and returns "hello {name}"
 
-4. "/name2" which gets name in request body and returns "hello {name}"
+4. "/name2" which gets name in request header and returns "hello {name}"
