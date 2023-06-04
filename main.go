@@ -19,9 +19,16 @@ func handleBye(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("bye"))
 }
 
+func handleName1(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query()["name"][0]
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("hello " + name))
+}
+
 func main() {
 	http.HandleFunc("/hello", handleHello)
 	http.HandleFunc("/bye", handleBye)
+	http.HandleFunc("/name1", handleName1)
 	err := http.ListenAndServe(HOST+":"+PORT, nil)
 	if err != nil {
 		panic(err)
